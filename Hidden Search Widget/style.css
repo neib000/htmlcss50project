@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+  background-color: #f6f7fb;
+  font-family: "Muli", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.search{
+    position: relative;
+    height: 50px;
+}
+.search .input{
+    background-color: #fff;
+    border: 0;
+    font-size: 18px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    transition: width 0.3s ease;
+}
+.btn:focus, .input:focus{
+    outline: none;
+}
+.search .btn{
+    background-color: #fff;
+    position: absolute;
+    font-size: 24px;
+    border: 0;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search.active input{
+    width: 200px;
+}
+.search.active button{
+    transform: translateX(190px);
+} 
+
