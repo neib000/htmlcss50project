@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drink Water</title>
+    <title>Theme Clock</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -15,29 +15,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Drink Water</h1>
-    <h3>Goal: 2 Liters</h3>
-
-    <div class="cup">
-      <div class="remained" id="remained">
-        <span id="Liters"></span>
-        <small>Remained</small>
+    <button class="toggle">Dark mode</button>
+    <div class="clock-container">
+      <div class="clock">
+        <div class="needle hour"></div>
+        <div class="needle minute"></div>
+        <div class="needle second"></div>
+        <div class="center-point"></div>
       </div>
-      <div class="percentage" id="percentage">
-        
-      </div>
-      
-    </div>
-    <p class="text">Select how many glasses of water that you have drank</p>
-    <div class="cups">
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
+      <div class="time">12:00</div>
+      <div class="date">Monday, Nov <span class="circle">2</span></div>
     </div>
     <script src="script.js"></script>
   </body>

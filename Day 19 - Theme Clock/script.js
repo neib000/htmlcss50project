@@ -1,45 +1,81 @@
-const smallCups = document.querySelectorAll(".cup-small");
-const listers = document.getElementById("Liters");
-const percentage = document.getElementById("percentage");
-const remained = document.getElementById("remained");
+const hourEl = document.querySelector(".hour");
+const minuteEl = document.querySelector(".minute");
+const secondEl = document.querySelector(".second");
+const timeEl = document.querySelector(".time");
+const dateEl = document.querySelector(".date");
+const toggle = document.querySelector(".toggle");
 
-updateBigCup()
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
-smallCups.forEach((cup, index) => {
-  cup.addEventListener("click", () => highlightCups(index));
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+toggle.addEventListener("click", (e) => {
+  const html = document.querySelector("html");
+  if (html.classList.contains("dark")) {
+    html.classList.remove("dark");
+    e.target.innerHTML = "Dark mode";
+  } else {
+    html.classList.add("dark");
+    e.target.innerHTML = "Light mode";
+  }
 });
-function highlightCups(index) {
-  if (
-    smallCups[index].classList.contains("full") &&
-    (smallCups[index].nextElementSibling === null || !smallCups[index].nextElementSibling.classList.contains("full"))
-  ) {
-    index--;
-  }
-  smallCups.forEach((cup, index2) => {
-    if (index2 <= index) {
-      cup.classList.add("full");
-    } else {
-      cup.classList.remove("full");
-    }
-  });
-  updateBigCup();
-}
-function updateBigCup() {
-  const fullCups = document.querySelectorAll(".cup-small.full").length;
-  const totalCup = smallCups.length;
+function setTime() {
+  const time = new Date();
+  const month = time.getMonth();
+  const day = time.getDay();
+  const hours = time.getHours();
+  const hoursForClick = hours % 12;
+  const minutes = time.getMinutes();
+  const seconds = time.getSeconds();
+  const AMPM = hours > 12 ? "PM" : "AM";
+  hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    hoursForClick,
+    0,
+    11,
+    0,
+    360
+  )}deg)`;
+  minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    minutes,
+    0,
+    59,
+    0,
+    360
+  )}deg)`;
+  secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    seconds,
+    0,
+    59,
+    0,
+    360
+  )}deg)`;
 
-  if (fullCups === 0) {
-    percentage.style.visibility = "hidden";
-    percentage.style.height = 0;
-  } else {
-    percentage.style.visibility = "visible";
-    percentage.style.height = `${(fullCups / totalCup) * 330}px`;
-  }
-  if (fullCups === totalCup) {
-    remained.style.visibility = "hidden";
-    remained.style.height = 0;
-  } else {
-    remained.style.visibility = "visible";
-    listers.innerText = `${2 - (250 * fullCups) / 1000}L`;
-  }
+  timeEl.innerText = `${hoursForClick}:${minutes < 10 ? `0${minutes}`: minutes} ${AMPM}` 
+  dateEl.innerHTML =  `${days[day]}, ${months[month]}  <span class="circle">${day}</span>`
 }
+setTime();
+function scale(number, inMin, inMax, outMin, outMax) {
+  return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+}
+setInterval(setTime, 1000);
