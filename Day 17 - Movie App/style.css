@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+:root{
+  --primary-color:#22254b;
+  --secondary-color:#373b69;
+  --font-color:#fff;
+  --bg-color: #fff;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+header{
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+.search{
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  color: var(--font-color);
+}
+ .search:placeholder{
+   color: #7378c5;
+ }
+ .search:focus{
+   outline: none;
+   background-color: var(--primary-color);
+ }
+ main{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ .movie{
+  flex-basis: 25%;
+ 
+}
+ .movie-content{
+    margin: 1rem;
+   background-color: var(--secondary-color);
+   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+   position: relative;
+   overflow: hidden;
+   border-radius: 3px;
+ }
+ .movie img{
+  width: 100%;
+ }
+ .movie-info{
+   color: var(--font-color);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0.5rem 1rem 1rem;
+   letter-spacing: 0.5px;
+
+ }
+ .movie-info h3{
+   margin-top: 0;
+
+ }
+ .movie-info span{
+   background-color: var(--primary-color);
+   padding: 0.25rem 0.5rem;
+   border-radius: 3px;
+   font-weight: bold;
+   
+ }
+ .movie-info span.green{
+   color: lightgreen;
+ }
+ .movie-info span.red{
+   color: red;
+ }
+.movie-info span.orange{
+  color: orange;
+}
+.overview{
+  color: black;
+  background-color: var(--bg-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 100%;
+  padding: 2rem;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+.movie:hover .overview{
+  transform: translateY(0);
+}
