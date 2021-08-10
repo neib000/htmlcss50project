@@ -6,7 +6,7 @@
   padding: 0;
 }
 body {
-  background-color: #f8f9fd;
+  background-color: #fef9f2;
   font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
@@ -14,71 +14,67 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-.container {
-  border-radius: 3px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 300px;
+.panel-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  max-width: 400px;
 }
 
-.title {
-  margin: 0;
+.panel-container strong {
+  line-height: 20px;
+  margin: 10px 0;
+}
+.ratings-container {
+  display: flex;
+  margin: 20px 0;
+}
+.rating {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px;
+  margin: 10px 5px;
 }
 
-.subtitle {
+.rating:hover,
+.rating.active {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.rating img {
+  width: 40px;
+}
+.rating small {
+  color: #555;
   display: inline-block;
-  margin: 5px 0 20px;
-  opacity: 0.8;
+  margin: 10px 0 0;
 }
-
-.header {
-  background-color: #3e57db;
+.btn {
+  background-color: #302d2b;
   color: #fff;
-  padding: 30px 20px;
-}
-.header input {
-  background-color: rgba(0, 0, 0, 0.3);
   border: 0;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 14px;
-  padding: 10px 15px;
-  width: 100%;
+  border-radius: 4px;
+  padding: 12px 30px;
+  cursor: pointer;
 }
-.header input:focus {
+.btn:focus{
   outline: none;
 }
-.user-list {
-  background-color: #fff;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  max-height: 400px;
-  overflow-y: auto;
+.btn:active{
+  transform: scale(0.98);
 }
-.user-list li {
-  display: flex;
-  padding: 20px;
-}
-.user-list img {
-  border-radius: 50%;
-  object-fit: cover;
-  height: 50px;
-  width: 50px;
-}
-.user-list .user-info {
-  margin-left: 10px;
-}
-.user-list .user-info h4 {
-  margin: 0 0 10px;
-  font-weight: bold;
-}
-.user-list .user-info p {
-  font-size: 12px;
-}
-.user-list li:not(:last-of-type) {
-  border-bottom: 1px solid #eee;
-}
-.user-list li.hide{
-  display: none;
+.fa-heart{
+  color: red;
+  font-size: 30px;
+  margin-bottom: 10px;
 }

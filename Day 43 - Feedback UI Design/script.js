@@ -1,29 +1,29 @@
-const result = document.getElementById("result");
-const filter = document.getElementById("filter");
+const ratings = document.querySelectorAll(".rating");
+const ratingsContainer = document.querySelector(".ratings-container");
+const panel = document.getElementById("panel");
+const sendBtn = document.getElementById("send");
 
-const listItems = [];
-getData()
-async function getData() {
-  const res = await fetch("http://randomuser.me/api?results=50");
+let selectedRating = "Unhappy";
 
-  const { results } = await res.json();
+ratingsContainer.addEventListener("click", (e) => {
+  if (e.target.parentNode.classList.contains("rating")) {
+    removeActive();
+    e.target.parentNode.classList.add("active");
+    selectedRating = e.target.nextElementSibling.innerHTML;
+  }
+});
+sendBtn.addEventListener("click", () => {
+  panel.innerHTML = `
+    <i class="fas fa-heart"></i>
+    <strong>Thank You!</strong>
+   
+    <strong>Feedback: ${selectedRating}</strong>
+    <p>We'll use your feedback to improve our customer support</p>
+    `;
+});
 
-  result.innerHTML = "";
-
-  results.forEach((user) => {
-    const li = document.createElement("li");
-
-    listItems.push(li);
-
-    li.innerHTML = `
-    <img
-            src="${user.picture.large}"
-            alt="${user.name.first}"
-          />
-          <div class="user-info">
-            <h4>${user.name.first} ${user.name.last}</h4>
-            <p>${user.location.city}, ${user.location.country}</p>
-          </div>`;
-    result.appendChild(li)
-  });
+function removeActive() {
+  for (let i = 0; i < ratings.length; i++) {
+    ratings[i].classList.remove("active");
+  }
 }

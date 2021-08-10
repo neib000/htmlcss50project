@@ -22,19 +22,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <h4 class="title">Live User Filter</h4>
-        <small class="subtitle">Search by name and/or location</small>
-        <input type="text" id="filter" placeholder="Search" />
-      </header>
-      <ul id="result" class="user-list">
-        <li>
-          <h3>Loading...</h3>
-        </li>
-      </ul>
+    <div id="panel" class="panel-container">
+      <strong
+        >How satisfied are you with our <br />
+        customer support performance?</strong
+      >
+      <div class="ratings-container">
+        <div class="rating active">
+          <img
+            src="https://image.flaticon.com/icons/svg/187/187150.svg"
+            alt=""
+          />
+          <small>Unhappy</small>
+        </div>
+        <div class="rating">
+          <img
+            src="https://image.flaticon.com/icons/svg/187/187136.svg"
+            alt=""
+          />
+          <small>Neutral</small>
+        </div>
+        <div class="rating">
+          <img
+            src="https://image.flaticon.com/icons/svg/187/187133.svg"
+            alt=""
+          />
+          <small>Satisfied</small>
+        </div>
+      </div>
+      <button class="btn" id="send">Send Review</button>
     </div>
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"
       integrity="sha512-AD+GG1nJKO4Je/Q8QsY1gM9/7o1QjpGe9W2Lrg1oGtEID/RX8bMKKZGgw/KOODkPXL6j74c6eJWAhE/3F2kKjA=="
